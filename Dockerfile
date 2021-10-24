@@ -8,7 +8,7 @@ ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils 
 xvfb x11vnc x11-xkb-utils xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic x11-apps
 WORKDIR /app
 COPY package.json /app
-RUN npm install 
+RUN npm install && mkdir -p /app/profile
 COPY . /app
 EXPOSE 3031
 CMD npm start

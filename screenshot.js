@@ -42,6 +42,7 @@ module.exports = function (url) {
         `--no-sandbox`,
         `--display=`+xvfb._display,
         `--load-extension=${dr}`,
+        `--single-process`,
         `--user-data-dir=${pr}`
       ];
 
