@@ -26,7 +26,7 @@ const waitTillHTMLRendered = async (page, timeout = 30000) => {
 const puppeteer = require('puppeteer')
 const Xvfb = require('xvfb');
 const dr = __dirname + '/extdarkreader';
-const pr = __dirname + '/profile';
+//const pr = __dirname + '/profile';
 
 module.exports = function (url) {
   return new Promise((resolve, reject) => {
@@ -41,9 +41,9 @@ module.exports = function (url) {
         `--start-maximized`,
         `--no-sandbox`,
         `--display=`+xvfb._display,
+//        `--single-process`,
         `--load-extension=${dr}`,
-        `--single-process`,
-        `--user-data-dir=${pr}`
+//        `--user-data-dir=${pr}`
       ];
 
       const browser = await puppeteer.launch({
@@ -70,11 +70,10 @@ module.exports = function (url) {
 
       await waitTillHTMLRendered(page)
 
-/*      try {
+      try {
         await page.waitForNavigation()
-      } catch {
+      } catch(e) {console.log(e)
       }
-*/
 
       const data = await page.content()
 

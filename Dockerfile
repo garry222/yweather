@@ -10,5 +10,5 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install && mkdir -p /app/profile
 COPY . /app
-EXPOSE 3031
+EXPOSE 3131
 CMD npm start
